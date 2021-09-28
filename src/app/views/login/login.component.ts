@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
           console.log("test",res)
           this.data = res
           if (this.data.status == false) {
-            this.message = res[0].message;
+            this.message = this.data.message;
             setTimeout(() => {
               this.message = '';
             }, 2000);
