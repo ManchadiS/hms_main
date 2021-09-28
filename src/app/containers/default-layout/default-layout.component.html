@@ -1,9 +1,25 @@
-<app-header
+<app-header *ngIf='userDetails'
   [navbarBrandRouterLink]="['/dashboard']"
   [fixed]="true"
   [navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"
   [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"
   [asideMenuToggler]="'lg'">
+
+  <ul class="nav navbar-nav d-md-down-none" *ngIf='userDetails.LocationID == 0'>
+    <li class="nav-item px-3">
+      <select [(ngModel)]="locationid" (change)="selectedlocation($event.target.value)">
+        <option *ngFor="let obj of locationList" [value]="obj.LocationID">{{obj.LocationName}}</option>
+      </select>
+    </li>
+  </ul>
+  <ul class="nav navbar-nav d-md-down-none" *ngIf='userDetails.LocationID != 0'>
+    <li class="nav-item px-3" >
+      <select [(ngModel)]="locationid" (change)="selectedlocation($event.target.value)">
+        <option *ngFor="let obj of locationList" [value]="obj.LocationID"
+          [disabled]='obj.LocationID != userDetails.LocationID'>{{obj.LocationName}}</option>
+      </select>
+    </li>
+  </ul>
   <!-- <ul class="nav navbar-nav d-md-down-none">
     <li class="nav-item px-3">
       <a class="nav-link" href="#">Dashboard</a>
@@ -48,7 +64,7 @@
     </li>
   </ul> -->
 </app-header>
-<div class="app-body">
+<div class="app-body" *ngIf='navItems'>
   <app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" (minimizedChange)="toggleMinimize($event)">
     <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
     <app-sidebar-minimizer></app-sidebar-minimizer>

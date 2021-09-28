@@ -19,4 +19,8 @@ export class GlobalServiceService {
   public postRequest(url, data) {
     return this.http.post(url, data, { headers: this.headers() })
   }
+
+  public getRequest(url){
+    return this.http.get(url, { headers: this.headers() })
+  }
 }

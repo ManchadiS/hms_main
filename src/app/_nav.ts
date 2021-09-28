@@ -1,15 +1,57 @@
 import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
+
   {
-    name: 'Dashboard',
-    url: '/dashboard',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
-  },
+    name: 'Hospitals',
+    url: '/hospitals',
+    icon: 'fa fa-hospital-o',
+    children: [
+      {
+        name: 'User Role Rights',
+        url: '/UserRolesRight',
+        icon: 'fa fa-user-times',
+        children: [
+          {
+            name: 'User Right',
+            url: '/hospitals/UserRolesRight/UserMaster',
+            icon: 'fa fa-cogs',
+          },
+          {
+            name: 'Roles Right',
+            url: '/hospitals/UserRolesRight/RoleRightMaster',
+            icon: 'fa fa-child',
+          }
+        ],
+      },
+      {
+        name: 'Hospitals',
+        url: '/hospital',
+        icon: 'fa fa-user-times',
+        children: [
+          {
+            name: 'Hospital',
+            url: '/hospitals/hospital/hospitalList',
+            icon: 'fa fa-child',
+          },
+          {
+            name: 'Hospital Location',
+            url: '/hospitals/hospital/locationList',
+            icon: 'fa fa-cogs',
+          }
+        ],
+      }
+    ],
+  }
+  // {
+  //   name: 'Dashboard',
+  //   url: '/dashboard',
+  //   icon: 'icon-speedometer',
+  //   badge: {
+  //     variant: 'info',
+  //     text: 'NEW'
+  //   }
+  // },
   // {
   //   title: true,
   //   name: 'Theme'

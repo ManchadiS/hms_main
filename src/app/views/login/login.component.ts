@@ -61,7 +61,6 @@ export class LoginComponent implements OnInit {
   }
 
   validate(data) {
-
     if (!data.username) {
       this.message = 'Username is Required';
       setTimeout(() => {
@@ -69,7 +68,6 @@ export class LoginComponent implements OnInit {
       }, 2000);
       return false;
     }
-
     if (!data.password) {
       this.message = 'Password is Required';
       setTimeout(() => {
@@ -78,7 +76,6 @@ export class LoginComponent implements OnInit {
       return false;
     }
     return true;
-
   }
 
 
