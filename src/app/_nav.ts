@@ -31,7 +31,7 @@ export const navItems: INavData[] = [
         children: [
           {
             name: 'Hospital',
-            url: '/hospitals/hospital/hospitalList',
+            url: '/hospitals',
             icon: 'fa fa-child',
           },
           {
@@ -42,7 +42,7 @@ export const navItems: INavData[] = [
         ],
       }
     ],
-  }
+  },
   // {
   //   name: 'Dashboard',
   //   url: '/dashboard',

@@ -45,6 +45,10 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { GlobalServiceService } from './services/global-service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddHospitalComponent } from './views/hospital/add-hospital/add-hospital.component';
+import { HospitalDetailsComponent } from './views/hospital/hospital-details/hospital-details.component';
+import { ToastrModule } from 'ng6-toastr-notifications';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -64,7 +68,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -72,7 +77,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddHospitalComponent,
+    HospitalDetailsComponent
   ],
   providers: [
     {

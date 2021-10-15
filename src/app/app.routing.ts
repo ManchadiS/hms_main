@@ -6,6 +6,8 @@ import { DefaultLayoutComponent } from './containers';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
+import { AddHospitalComponent } from './views/hospital/add-hospital/add-hospital.component';
+import { HospitalDetailsComponent } from './views/hospital/hospital-details/hospital-details.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
@@ -81,7 +83,25 @@ export const routes: Routes = [
       {
         path: 'widgets',
         loadChildren: () => import('./views/widgets/widgets.module').then(m => m.WidgetsModule)
-      }
+      },
+      {
+        path: 'hospitals',
+        loadChildren: () => import('./views/hospital/Hospital.module').then(m => m.HospitalModule)
+      },
+      {
+        path: 'hospitals/addhospital',
+        component: AddHospitalComponent,
+        data: {
+          title: 'Add Hospital'
+        }
+      },
+      {
+        path: 'hospitals/details/:id',
+        component: HospitalDetailsComponent,
+        data: {
+          title: 'Hospital Details'
+        }
+      },
     ]
   },
   { path: '**', component: P404Component }

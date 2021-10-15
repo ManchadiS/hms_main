@@ -1,0 +1,71 @@
+<div class="animated fadeIn">
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <form [formGroup]="form.getForm()" (ngSubmit)="update()">
+        <div class="card">
+          <div class="card-header">
+            Hospital Details
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <div class="form-group">
+                    <label for="HospitalName">Hospital Name<span style="color: red">*</span></label>
+                    <input id="HospitalName" formControlName="HospitalName" class="form-control"
+                      placeholder="Hospital Name" type="text" />
+                  </div>
+                  <div *ngIf="form.hasError('HospitalName')" class="text-danger">
+                    {{form.getError('HospitalName')}}
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <div class="form-group">
+                    <label for="email">Email ID<span style="color: red">*</span></label>
+                    <input id="email" formControlName="EmailID" class="form-control" placeholder="Email ID"
+                      type="text" />
+                  </div>
+                  <div *ngIf="form.hasError('EmailID')" class="text-danger">
+                    {{form.getError('EmailID')}}
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <div class="form-group">
+                    <label for="mobileNo">Mobile No.<span style="color: red">*</span></label>
+                    <input id="mobileNo" formControlName="MobileNo" class="form-control" placeholder="Mobile"
+                      type="text" />
+                  </div>
+                  <div *ngIf="form.hasError('MobileNo')" class="text-danger">
+                    {{form.getError('MobileNo')}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <div class="form-group">
+                    <label for="url">URL<span style="color: red"></span></label>
+                    <input id="url" formControlName="URL" class="form-control" placeholder="url" type="url" />
+                  </div>
+                  <div *ngIf="form.hasError('URL')" class="text-danger">
+                    {{form.getError('URL')}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3 mb-3 pull-right">
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-block btn-primary" [disabled]='isClicked'> Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

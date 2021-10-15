@@ -1,0 +1,70 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-md-1">
+      <div class="form-group">
+        <select id="name" [(ngModel)]="numberOfRows" class="form-control textColor">
+          <option value='10'>10</option>
+          <option value='25'>25</option>
+          <option value='50'>50</option>
+          <option value='100'>100</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2"></div>
+    <div class="col-md-3">
+      <form [formGroup]="search">
+        <div class="form-group">
+          <input class="form-control" formControlName="search" id="name" placeholder="Search Hospital Name" type="text">
+        </div>
+      </form>
+    </div>
+    <div class="col-md-3">
+      <button type="button" (click)="goto()" class="btn btn-block btn-primary fa fa-plus">
+        Add Hospital</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+
+        </div>
+        <div class="card-body" style="overflow-x:auto;">
+          <table class="table table-responsive-sm table-hover table-outline mb-0">
+            <thead class="thead-light">
+              <tr>
+                <th>Hospital ID</th>
+                <th>Hospital Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of hospitalList | paginate: { itemsPerPage: numberOfRows, currentPage: p }">
+                <td>
+                  {{item.HospitalID || "-"}}
+                </td>
+                <td>
+                  {{item.HospitalName || "-"}}
+                </td>
+                <td>
+                  <button type="button" (click)="edit(item)" class="btn btn-success">
+                    Edit
+                  </button>
+                  <button type="button" class="btn btn-danger" (click)="$event.stopPropagation();delete(item._id)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <pagination-controls style="float:right" (pageChange)="p = $event"></pagination-controls>
+    </div>
+    <!--/.col-->
+  </div>
+  <!--/.row-->
+</div>
