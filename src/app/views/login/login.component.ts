@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
       const url = this.globalService.basePathUrl() + 'admin/login';
       this.globalService.postRequest(url, body)
         .subscribe(res => {
-          console.log("test",res)
           this.data = res
           if (this.data.status == false) {
             this.message = this.data.message;
